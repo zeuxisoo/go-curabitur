@@ -52,4 +52,7 @@ html, body {
 <script>
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.min'
+
+import 'sweetalert/dist/sweetalert.css'
+import 'sweetalert'
 </script>

@@ -96,18 +96,24 @@ export default {
                     text: "Enter to chat"
                 };
 
-                this.messages.push(message);
+                this.addMessage(message);
                 this.socket.send(JSON.stringify(message));
             }
 
             this.socket.onclose = (e) => {
-                console.log("Onclose")
+                swal({
+                    title: "Oops!",
+                    text : "Session timeout! Please reload this page.",
+                    type : "warning"
+                }, () => {
+                    window.location.reload();
+                });
             }
 
             this.socket.onmessage = (e) => {
                 let message = JSON.parse(e.data);
 
-                this.messages.push({
+                this.addMessage({
                     kind: message.kind,
                     from: message.from,
                     text: message.text
@@ -115,7 +121,13 @@ export default {
             }
 
             this.socket.onerror = (e) => {
-                console.log("onerror")
+                swal({
+                    title: "Error!",
+                    text : "Got some unknown error! Please reload this page.",
+                    type : "error"
+                }, () => {
+                    console.log(e);
+                });
             }
         },
 
@@ -126,8 +138,16 @@ export default {
                 text: this.message,
             };
 
+            this.addMessage(message);
+            this.socket.send(JSON.stringify(message));
+        },
+
+        addMessage(message) {
             this.messages.push(message);
-            this.socket.send(JSON.stringify(message))
+
+            this.$nextTick(() => {
+                $("#message-list .board").scrollTop($('#message-list .board')[0].scrollHeight);
+            })
         }
     }
 
