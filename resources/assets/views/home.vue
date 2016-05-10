@@ -23,7 +23,7 @@
                         <input type="text" class="form-control" id="" placeholder="Username" v-model="username">
                     </div>
                     <div class="col-md-10">
-                        <input type="text" class="form-control" id="" placeholder="Type a message ..." v-on:keyup.enter="submit">
+                        <input type="text" class="form-control" id="" placeholder="Type a message ..." v-model="message" v-on:keyup.enter="submit">
                     </div>
                 </div>
             </div>
@@ -64,6 +64,7 @@ export default {
         return {
             socket  : null,
             username: faker.name.findName(),
+            message : "",
             messages: []
         }
     },
@@ -89,7 +90,14 @@ export default {
             this.socket = new WebSocket("ws://" + location.host + "/chat");
 
             this.socket.onopen = (e) => {
-                console.log("Onopen")
+                let message = {
+                    kind: "status",
+                    from: this.username,
+                    text: "Enter to chat"
+                };
+
+                this.messages.push(message);
+                this.socket.send(JSON.stringify(message));
             }
 
             this.socket.onclose = (e) => {
@@ -97,7 +105,13 @@ export default {
             }
 
             this.socket.onmessage = (e) => {
-                console.log("onmessage", e)
+                let message = JSON.parse(e.data);
+
+                this.messages.push({
+                    kind: message.kind,
+                    from: message.from,
+                    text: message.text
+                });
             }
 
             this.socket.onerror = (e) => {
@@ -106,17 +120,14 @@ export default {
         },
 
         submit() {
-            this.messages.push({
+            let message = {
                 kind: "message",
                 from: this.username,
-                text: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)."
-            }),
+                text: this.message,
+            };
 
-            this.socket.send(JSON.stringify({
-                kind: "message",
-                from: this.username,
-                text: "This is a test message (" + new Date() + ")"
-            }))
+            this.messages.push(message);
+            this.socket.send(JSON.stringify(message))
         }
     }
 
