@@ -17,6 +17,7 @@ func main() {
             FileSystem: bindata.Static(bindata.Options{
                 Asset:      public.Asset,
                 AssetDir:   public.AssetDir,
+                AssetInfo:  public.AssetInfo,
                 AssetNames: public.AssetNames,
                 Prefix:     "",
             }),
