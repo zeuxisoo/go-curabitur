@@ -1,6 +1,10 @@
-hash: 161be6ca34eb82889a9e1343b89e53bbd02e5e3bce3eb841972f46277673374a
-updated: 2016-05-10T12:23:39.864145129+08:00
+hash: a0d795b0514d7fdbcd1933aa0bb62f9f9804dad5a641912452a49dd6f1fe1b2a
+updated: 2016-05-10T12:46:28.457135322+08:00
 imports:
+- name: github.com/elazarl/go-bindata-assetfs
+  version: 57eb5e1fc594ad4b0b1dbea7b286d299e0cb43c2
+- name: github.com/go-macaron/bindata
+  version: de74a053830c7d338bf209adf3b711c969f63e59
 - name: github.com/go-macaron/inject
   version: c5ab7bf3a307593cd44cb272d1a5beea473dd072
 - name: github.com/Unknwon/com

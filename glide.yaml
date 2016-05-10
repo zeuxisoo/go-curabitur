@@ -2,3 +2,5 @@ package: github.com/zeuxisoo/go-curabitur
 import:
 - package: gopkg.in/macaron.v1
 - package: github.com/go-macaron/inject
+- package: github.com/go-macaron/bindata
+- package: github.com/elazarl/go-bindata-assetfs
