@@ -5,13 +5,16 @@
 <title>Curabitur</title>
 {{if .isLocalAssets}}
     <link rel="stylesheet" href="/build/bundle.css">
-    <script src="/build/bundle.js"></script>
 {{else}}
     <link rel="stylesheet" href="http://localhost:9090/build/bundle.css">
-    <script src="http://localhost:9090/build/bundle.js"></script>
 {{end}}
 </head>
 <body>
-
+<div id="app"></div>
+{{if .isLocalAssets}}
+    <script src="/build/bundle.js"></script>
+{{else}}
+    <script src="http://localhost:9090/build/bundle.js"></script>
+{{end}}
 </body>
 </html>
