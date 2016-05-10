@@ -11,6 +11,8 @@ clean:
 	@rm -rf public/bindata.go
 	@rm -rf templates/bindata.go
 
+	@rm -rf public/build
+
 	@rm -rf go-curabitur
 
 bindata:
@@ -25,3 +27,13 @@ server: clean bindata
 
 dev-server: clean dev-bindata
 	@bra run
+
+assets:
+	@npm run build
+
+dev-assets:
+	@npm run dev
+
+release: clean assets bindata
+	@go install
+	@cp '$(GOPATH)/bin/go-curabitur' .

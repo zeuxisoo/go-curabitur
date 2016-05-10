@@ -28,6 +28,7 @@ func main() {
         TemplateFileSystem: bindata.Templates(bindata.Options{
             Asset:      templates.Asset,
             AssetDir:   templates.AssetDir,
+            AssetInfo:  templates.AssetInfo,
             AssetNames: templates.AssetNames,
             Prefix:     "",
         }),
