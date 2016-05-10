@@ -4,3 +4,6 @@ import:
 - package: github.com/go-macaron/inject
 - package: github.com/go-macaron/bindata
 - package: github.com/elazarl/go-bindata-assetfs
+- package: github.com/go-macaron/sockets
+- package: github.com/gorilla/websocket
+- package: github.com/Pallinder/go-randomdata

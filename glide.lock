@@ -1,5 +1,5 @@
-hash: a0d795b0514d7fdbcd1933aa0bb62f9f9804dad5a641912452a49dd6f1fe1b2a
-updated: 2016-05-10T12:46:28.457135322+08:00
+hash: 4ed637e57111da9bc20100a4e1b0968681878bdffc6e0a0257d22c6019ead853
+updated: 2016-05-10T17:44:35.749963426+08:00
 imports:
 - name: github.com/elazarl/go-bindata-assetfs
   version: 57eb5e1fc594ad4b0b1dbea7b286d299e0cb43c2
@@ -7,6 +7,12 @@ imports:
   version: de74a053830c7d338bf209adf3b711c969f63e59
 - name: github.com/go-macaron/inject
   version: c5ab7bf3a307593cd44cb272d1a5beea473dd072
+- name: github.com/go-macaron/sockets
+  version: 9e25b74dda32eb1bb82bf8b14e838da19ae5a66d
+- name: github.com/gorilla/websocket
+  version: 1f512fc3f05332ba7117626cdfb4e07474e58e60
+- name: github.com/Pallinder/go-randomdata
+  version: 4134a721d6473f81816b1799866bf3e553a9b8d4
 - name: github.com/Unknwon/com
   version: 28b053d5a2923b87ce8c5a08f3af779894a72758
 - name: gopkg.in/ini.v1

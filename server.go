@@ -7,6 +7,7 @@ import (
 
     "gopkg.in/macaron.v1"
     "github.com/go-macaron/bindata"
+    "github.com/go-macaron/sockets"
 )
 
 func main() {
@@ -35,6 +36,7 @@ func main() {
     }))
 
     m.Get("/", routes.Home)
+    m.Get("/chat", sockets.JSON(routes.ChatMessage{}), routes.Chat)
 
     m.Run("127.0.0.1", 8080)
 }
