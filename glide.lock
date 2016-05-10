@@ -1,0 +1,12 @@
+hash: 161be6ca34eb82889a9e1343b89e53bbd02e5e3bce3eb841972f46277673374a
+updated: 2016-05-10T12:23:39.864145129+08:00
+imports:
+- name: github.com/go-macaron/inject
+  version: c5ab7bf3a307593cd44cb272d1a5beea473dd072
+- name: github.com/Unknwon/com
+  version: 28b053d5a2923b87ce8c5a08f3af779894a72758
+- name: gopkg.in/ini.v1
+  version: 12f418cc7edc5a618a51407b7ac1f1f512139df3
+- name: gopkg.in/macaron.v1
+  version: 94a5ef7105036242f79e5e07a8eb8651d06c8533
+devImports: []
