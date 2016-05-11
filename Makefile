@@ -23,10 +23,10 @@ dev-bindata:
 	@$(MAKE) --no-print-directory bindata BINDATA_OPTS="-debug"
 
 server: clean bindata
-	@bra run
+	@ASSET_MODE=link bra run
 
 dev-server: clean dev-bindata
-	@bra run
+	@ASSET_MODE=link bra run
 
 assets:
 	@npm run build
@@ -35,5 +35,5 @@ dev-assets:
 	@npm run dev
 
 release: clean assets bindata
-	@go install
+	@ASSET_MODE=embed go install
 	@cp '$(GOPATH)/bin/go-curabitur' .

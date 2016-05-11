@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <title>Curabitur</title>
-{{if .isLocalAssets}}
-    <link rel="stylesheet" href="/build/bundle.css">
-{{else}}
+{{if eq .assetMode "link"}}
     <link rel="stylesheet" href="http://localhost:9090/build/bundle.css">
+{{else}}
+    <link rel="stylesheet" href="/build/bundle.css">
 {{end}}
 </head>
 <body>
 <div id="app"></div>
-{{if .isLocalAssets}}
-    <script src="/build/bundle.js"></script>
-{{else}}
+{{if eq .assetMode "link"}}
     <script src="http://localhost:9090/build/bundle.js"></script>
+{{else}}
+    <script src="/build/bundle.js"></script>
 {{end}}
 </body>
 </html>
